@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RD STORE</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Cairo',sans-serif;
+}
+
+body{
+    background:#070b14;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* الخلفية */
+.bg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at top left,#00bfff33,transparent 30%),
+    radial-gradient(circle at bottom right,#7a00ff33,transparent 30%),
+    #070b14;
+    z-index:-2;
+}
+
+/* blur */
+.blur{
+    position:fixed;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    filter:blur(120px);
+    animation:move 12s infinite alternate;
+}
+
+.blur1{
+    background:#00aeff;
+    top:-50px;
+    left:-50px;
+}
+
+.blur2{
+    background:#8c00ff;
+    bottom:-50px;
+    right:-50px;
+}
+
+@keyframes move{
+    100%{
+        transform:translate(100px,50px) scale(1.2);
+    }
+}
+
+/* 🔥 LIVE STATS */
+
+.liveStats{
+
+position:fixed;
+
+left:20px;
+
+top:50%;
+
+transform:translateY(-50%);
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+z-index:999;
+
+}
+
+.statBox{
+
+background:#ffffff10;
+
+border:1px solid #ffffff20;
+
+backdrop-filter:blur(12px);
+
+padding:18px 22px;
+
+border-radius:20px;
+
+box-shadow:0 0 25px #7d2cff55;
+
+animation:floatBox 3s ease-in-out infinite;
+
+text-align:center;
+
+min-width:150px;
+
+}
+
+.statBox h3{
+
+font-size:16px;
+
+margin-bottom:10px;
+
+color:#b46cff;
+
+}
+
+.statBox div{
+
+font-size:32px;
+
+font-weight:900;
+
+background:linear-gradient(45deg,#00c3ff,#a855f7);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+@keyframes floatBox{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    backdrop-filter:blur(12px);
+    background:#ffffff08;
+    border-bottom:1px solid #ffffff15;
+    z-index:999;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:900;
+    background:linear-gradient(45deg,#00c3ff,#7d2cff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+    font-size:17px;
+}
+
+nav ul li a:hover{
+    color:#00c3ff;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+    padding:40px;
+}
+
+.hero h1{
+    font-size:70px;
+    margin-bottom:20px;
+    line-height:1.2;
+}
+
+.hero h1 span{
+    background:linear-gradient(45deg,#00c3ff,#8b2dff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:#cfcfcf;
+    max-width:750px;
+    line-height:2;
+    font-size:18px;
+}
+
+.hero button{
+    margin-top:35px;
+    padding:18px 45px;
+    border:none;
+    border-radius:60px;
+    font-size:18px;
+    cursor:pointer;
+    background:linear-gradient(45deg,#00c3ff,#7d2cff);
+    color:white;
+    transition:0.4s;
+    box-shadow:0 0 30px #00c3ff55;
+}
+
+.hero button:hover{
+    transform:scale(1.08);
+}
+
+/* الفئات */
+
+.categories{
+    padding:100px 8%;
+}
+
+.title{
+    text-align:center;
+    font-size:45px;
+    margin-bottom:60px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:#ffffff08;
+    border:1px solid #ffffff15;
+    border-radius:30px;
+    overflow:hidden;
+    transition:0.4s;
+    cursor:pointer;
+    backdrop-filter:blur(10px);
+}
+
+.card:hover{
+    transform:translateY(-12px);
+    background:#ffffff12;
+}
+
+.card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:22px;
+}
+
+.card-content h3{
+    font-size:25px;
+    margin-bottom:10px;
+    color:#00c3ff;
+}
+
+.card-content p{
+    color:#cfcfcf;
+    line-height:1.8;
+}
+
+/* FOOTER */
+
+footer{
+    padding:40px;
+    text-align:center;
+    border-top:1px solid #ffffff15;
+    color:#bdbdbd;
+    margin-top:60px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:45px;
+}
+
+nav{
+    flex-direction:column;
+    gap:15px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="blur blur1"></div>
+<div class="blur blur2"></div>
+
+<!-- 🔥 LIVE STATS -->
+
+<div class="liveStats">
+
+    <div class="statBox">
+
+        <h3>يشاهد الصفحة الآن</h3>
+
+        <div id="viewerCount">128</div>
+
+    </div>
+
+</div>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">RD STORE</div>
+
+    <ul>
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="paste2.html">تواصل معنا</a></li>
+    </ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h1>
+        مرحبا بكم في <span>متجرنا</span>
+    </h1>
+
+    <p>
+        مرحباً بكم في RD store. نفخر بتقديم أفضل الحلول والمنتجات التي تلبي تطلعاتكم. شكراً لثقتكم بنا، وفريقنا دائماً هنا لمساعدتكم.
+    </p>
+
+    <button>
+        ابدأ التسوق
+    </button>
+
+</section>
+
+<!-- CATEGORIES -->
+
+<section class="categories">
+
+    <h2 class="title">الفئات</h2>
+
+    <div class="cards">
+
+        <!-- Fashion -->
+
+ <a href="fashion.html">
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="card-content">
+
+            <h3>فئة الموضة</h3>
+
+            <p>
+                ستايلات عصرية للرجال والنساء تعبر عن الأناقة والموضة.
+            </p>
+
+        </div>
+
+    </div>
+</a>
+        <!-- Watches -->
+
+        <div class="card">
+
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="card-content">
+
+                <h3>ساعات ذكية</h3>
+
+                <p>
+                    أحدث التقنيات في عالم الساعات الذكية بتصميم فاخر.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Headphones -->
+
+        <div class="card">
+
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="card-content">
+
+                <h3>سماعات</h3>
+
+                <p>
+                    جودة صوت احترافية وتجربة استماع قوية ومميزة.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    © 2026 RD STORE - جميع الحقوق محفوظة
+</footer>
+
+<script>
+
+/* 🔥 fake viewers */
+
+let viewers = 128;
+
+setInterval(()=>{
+
+let random = Math.floor(Math.random()*6);
+
+if(Math.random()>0.5){
+
+viewers += random;
+
+}else{
+
+viewers -= random;
+
+}
+
+if(viewers < 90){
+
+viewers = 90;
+
+}
+
+document.getElementById("viewerCount").innerText = viewers;
+
+},1000);
+
+/* 🟢 fake online users */
+
+let online = 42;
+
+setInterval(()=>{
+
+let random = Math.floor(Math.random()*4);
+
+if(Math.random()>0.5){
+
+online += random;
+
+}else{
+
+online -= random;
+
+}
+
+if(online < 20){
+
+online = 20;
+
+}
+
+document.getElementById("onlineCount").innerText = online;
+
+},2500);
+
+</script>
+
+</body>
+</html>
